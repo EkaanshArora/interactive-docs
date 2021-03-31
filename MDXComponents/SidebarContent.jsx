@@ -78,6 +78,10 @@ export default function NestedList() {
   const router = useRouter();
 
   const handleClick = (title) => {
+    if(title === 'API Reference')
+    {
+      router.push('/web/landing')
+    } else
     setOpen(ps=>{return {...ps, [title]: !ps[title]}});
     console.log(title, open);
   };
@@ -133,7 +137,7 @@ export default function NestedList() {
                         <Link ref={ref} naked {...props} />
                       ),
                     )}
-                    href={url}>
+                    href={'/web/demo'}>
                     <ListItemText
                       primaryTypographyProps={{
                         classes: {

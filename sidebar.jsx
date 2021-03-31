@@ -37,10 +37,10 @@ const Best = [
 const sidebar = [
   { title: 'Introduction', contents: null },
   { title: 'Quickstart Guides', contents: Quickstart },
+  { title: 'API Reference', contents: null },
   { title: 'Basic Guides', contents: Basic },
   { title: 'Advanced Guides', contents: Advanced },
   { title: 'Best Practices', contents: Best },
-  { title: 'API Reference', contents: null },
   { title: 'FAQ', contents: null },
 ];
 

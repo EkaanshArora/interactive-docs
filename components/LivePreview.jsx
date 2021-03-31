@@ -16,8 +16,8 @@ function LivePreview(props) {
     // const channelName = makeid(10);
 
     return (<div>
-        <QRCode value="test" />
-        <iframe src="https://appetize.io/embed/01v5xftmejwc1pfmc2mb824ej8"></iframe>
+        <QRCode value="test" style={{top:'0px'}}/>
+        <iframe style={{marginLeft:'20px', width:'300px',height:'600px'}} src="https://appetize.io/embed/01v5xftmejwc1pfmc2mb824ej8"></iframe>
     </div>);
 }
 
