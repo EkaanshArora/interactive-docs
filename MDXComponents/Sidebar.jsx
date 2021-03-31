@@ -7,7 +7,8 @@ export default function Sidebar() {
     <Card
       elevation={0}
       style={{
-        height: '600px',
+        height: '80vh',
+        overflowY: 'scroll',
         // width: '20%',
         top: '4rem',
         position: 'fixed',
