@@ -52,10 +52,10 @@ function Wrapper(props) {
   const matches = useSmQuerry();
   const [rightDrawerVisible, setRightDrawerVisible] = useState(false);
   const rest = React.Children.toArray(props.children);
-  const Toc = rest.shift();
+  const heading = rest.shift();
   const [link, setLink] = useState('');
   const theme = useTheme();
-  const matchSideBar = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
     <>
       <div
@@ -75,55 +75,14 @@ function Wrapper(props) {
               <SideBar />
             </div>
           )}
-          <main
-            style={
-              !matchSideBar
-                ? {
-                    maxWidth: '766px',
-                    padding: '0 2rem',
-                    overflow: 'auto',
-                  }
-                : {
-                    margin: '0 10px',
-                    overflow: 'auto',
-                  }
-            }>
+          <main>
+          {heading}
+          <div
+          style={{ position:'relative', width: '100%'}}>
             {rest}
+          </div>
+
           </main>
-          {matchSideBar ? (
-            <>
-              <SwipeableDrawer
-                anchor="right"
-                classes={{paperAnchorLeft: CustomClasses.customDrawer}}
-                open={rightDrawerVisible}
-                onClose={() => setRightDrawerVisible(false)}
-                onOpen={() => setRightDrawerVisible(true)}>
-                <div className={CustomClasses.toolbar}>
-                  <Typography variant="h2" color="textSecondary">
-                    Table of Contents
-                  </Typography>
-                </div>
-                <Divider />
-                {/* {Toc} */}
-              </SwipeableDrawer>
-              <Fab
-                onClick={() => {
-                  setRightDrawerVisible(true);
-                }}
-                color="primary"
-                classes={{root: CustomClasses.fabutton}}
-                aria-label="right-navigation">
-                <MenuIcon htmlColor="#fff" />
-              </Fab>
-            </>
-          ) : (
-            <div style={{width: '280px', minWidth: '280px'}}>
-              <div style={webStyles}>
-                {Toc}
-              </div>
-            
-            </div>
-          )}
         </LinkProvider>
       </div>
     </>
