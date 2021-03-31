@@ -3,35 +3,317 @@ import Right from '../../MDXComponents/Right'
 
 # Demo
 
+Want to build a video chat app within an hour? View our guide to learn how to quickly and easily create a video chat app that can support multiple participants using the Agora Video SDK.
+
+
+## Requirements
+- Xcode 10.0+  
+- A physical iOS device. The iOS simulator lacks camera functionality.  
+- CocoaPods (If you don’t have CocoaPods installed already, you can find instructions here).  
+- An Agora account (You can sign up for free here).  
+- An understanding of how to build iOS layouts with a Storyboard. If you need a refresher, there’s a great tutorial here.  
+
+
 <Left>
 
-## section 1
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ex ipsum, viverra euismod ante a, porta congue neque. In hac habitasse platea dictumst. Sed vulputate libero velit, eget tempor tellus sagittis ac. Proin porta hendrerit libero, vel luctus leo. Praesent risus quam, suscipit nec pretium vel, rhoncus a odio. In hac habitasse platea dictumst. In a augue vel nisl tempus lobortis. Integer tincidunt varius mauris, vitae faucibus turpis gravida luctus. Etiam eget mi lorem. Ut sit amet diam lorem. Phasellus lobortis turpis nisl, eget malesuada velit ultricies vel. Ut et sollicitudin nunc. Suspendisse dapibus magna leo, eu viverra metus efficitur ut. Nam efficitur elit ligula, id congue tellus volutpat vel. Sed ut nibh fermentum, volutpat quam bibendum, luctus magna. Donec vestibulum mi in porttitor aliquam. In at erat molestie, scelerisque mi et, interdum enim. Mauris pharetra feugiat mattis. Vestibulum maximus elit eget nunc ornare facilisis. Integer lacinia ultricies ante vel faucibus. Vivamus ex lorem, viverra quis euismod at, dignissim eget mauris. Curabitur laoreet lectus non sem viverra faucibus vitae ac ipsum. Duis eget congue mauris. Cras ultrices neque ex, ut sagittis dui consequat et. Morbi egestas tincidunt velit ac molestie. In condimentum, est et mattis feugiat, massa velit lacinia lacus, ut ullamcorper mi felis id enim. Aliquam eget bibendum libero. Duis vulputate enim ligula, at tempor dui sollicitudin faucibus. Vivamus vel faucibus mauris. Aliquam vitae eros imperdiet, accumsan velit sollicitudin, blandit quam. Nam pharetra aliquet eros non vehicula. Duis convallis et libero et euismod. Proin pharetra tempus sapien. Mauris mollis non nibh tincidunt posuere. Vivamus luctus, nulla non volutpat hendrerit, mauris purus congue metus, nec vulputate mauris felis in risus. Mauris non dignissim leo. Donec sed fringilla ipsum, ut condimentum arcu. Nullam eget ultricies orci, a varius justo. Praesent eget mattis erat. Donec id felis ut eros tincidunt sagittis. Vestibulum condimentum nisl eu ipsum accumsan, at tempor ligula elementum. Suspendisse et odio dictum, vulputate leo euismod, condimentum tortor. Sed tincidunt et est quis semper. Ut commodo, leo sed fringilla sollicitudin, nulla dui imperdiet diam, sit amet lacinia ipsum risus id ex. Suspendisse ut sem risus. Phasellus consequat nunc a tempor elementum. Mauris sodales, ex non cursus fringilla, nulla lorem congue orci, quis dapibus velit est eu sem. Mauris cursus orci tellus, rhoncus gravida magna gravida id. Aenean blandit odio in dolor euismod, ac faucibus dolor semper.
+## Setting up the Agora Library with CocoaPods  
+1. Create a new Xcode project (or use an existing one).  
+2. In Terminal, navigate to the root directory of your project and run pod init to initialize CocoaPods.  
+3. Open the Podfile that was created and add the code on the right hand side to import the Agora library.  
+4. Run ```pod install``` in Terminal to install the library.  
+5. From now on, open YourApp.xcworkspace to edit and run your app.  
 
 </Left>
-<Right name={'section 1'}>
 
-```js
-import Left from '../../MDXComponents/Left'
-import Right from '../../MDXComponents/Right'
+<Right name={'Setting up the Agora Library with CocoaPods'}>
+
 ```
-
+target 'Your App' do 
+  pod 'AgoraRtcEngine_iOS' 
+end
+```
 </Right>
 
 <Left>
 
-## section 2
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ex ipsum, viverra euismod ante a, porta congue neque. In hac habitasse platea dictumst. Sed vulputate libero velit, eget tempor tellus sagittis ac. Proin porta hendrerit libero, vel luctus leo. Praesent risus quam, suscipit nec pretium vel, rhoncus a odio. In hac habitasse platea dictumst. In a augue vel nisl tempus lobortis. Integer tincidunt varius mauris, vitae faucibus turpis gravida luctus. Etiam eget mi lorem. Ut sit amet diam lorem. Phasellus lobortis turpis nisl, eget malesuada velit ultricies vel. Ut et sollicitudin nunc. Suspendisse dapibus magna leo, eu viverra metus efficitur ut. Nam efficitur elit ligula, id congue tellus volutpat vel. Sed ut nibh fermentum, volutpat quam bibendum, luctus magna. Donec vestibulum mi in porttitor aliquam. In at erat molestie, scelerisque mi et, interdum enim. Mauris pharetra feugiat mattis. Vestibulum maximus elit eget nunc ornare facilisis. Integer lacinia ultricies ante vel faucibus. Vivamus ex lorem, viverra quis euismod at, dignissim eget mauris. Curabitur laoreet lectus non sem viverra faucibus vitae ac ipsum. Duis eget congue mauris. Cras ultrices neque ex, ut sagittis dui consequat et. Morbi egestas tincidunt velit ac molestie. In condimentum, est et mattis feugiat, massa velit lacinia lacus, ut ullamcorper mi felis id enim. Aliquam eget bibendum libero. Duis vulputate enim ligula, at tempor dui sollicitudin faucibus. Vivamus vel faucibus mauris. Aliquam vitae eros imperdiet, accumsan velit sollicitudin, blandit quam. Nam pharetra aliquet eros non vehicula. Duis convallis et libero et euismod. Proin pharetra tempus sapien. Mauris mollis non nibh tincidunt posuere. Vivamus luctus, nulla non volutpat hendrerit, mauris purus congue metus, nec vulputate mauris felis in risus. Mauris non dignissim leo. Donec sed fringilla ipsum, ut condimentum arcu. Nullam eget ultricies orci, a varius justo. Praesent eget mattis erat. Donec id felis ut eros tincidunt sagittis. Vestibulum condimentum nisl eu ipsum accumsan, at tempor ligula elementum. Suspendisse et odio dictum, vulputate leo euismod, condimentum tortor. Sed tincidunt et est quis semper. Ut commodo, leo sed fringilla sollicitudin, nulla dui imperdiet diam, sit amet lacinia ipsum risus id ex. Suspendisse ut sem risus. Phasellus consequat nunc a tempor elementum. Mauris sodales, ex non cursus fringilla, nulla lorem congue orci, quis dapibus velit est eu sem. Mauris cursus orci tellus, rhoncus gravida magna gravida id. Aenean blandit odio in dolor euismod, ac faucibus dolor semper.
+## Add Camera and Microphone Permissions
+
+In order to use the microphone and camera, we’ll need to ask the user for permission to do so. In your Info.plist add the keys shown on the right
+Make sure you add a value for each. These values are user-facing, and will be displayed when the app asks for these permissions from the user.
+</Left>
+
+<Right name={'Add Camera and Microphone Permissions'}>
+
+```
+Privacy - Microphone Usage Description 
+Privacy - Camera Usage Description
+```
+</Right>
+
+<Left>
+
+## Setting up the Scene
+In our Main.storyboard we’ll need to add the views Agora will use to display the video feeds. For our demo, we’ll be using a single large view to display our local feed, and a collection view to show an arbitrary number of remote users, but feel free to adjust as necessary for your own needs.
+
+The local view is in green, and the remote view template is in red, for ease of identification. Add a View object for the local stream, a UIButton to mute and hang up the call, and a UICollectionView to hold the remote streams. Your UICollectionViewCells can be as simple as a single view to hold the stream — in the example above, I’ve added an overlay to show the remote user’s name if we know it.
 
 </Left>
 
+<Right name={'Setting up the Scene'}>
+![](/image1.png)
+</Right>
 
-<Right name={'section 2'}>
+<Left>
 
-```js
-console.log("hello world!")
+## AgoraVideoViewController
+Make sure you hook up the views in your main View Controller, and set the View Controller as the UICollectionView’s delegate and dataSource:  
+
+</Left>
+
+<Right name={'AgoraVideoViewController'}>
+
+```swift
+class AgoraVideoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var localVideoView: UIView!
+    @IBOutlet weak var muteButton: UIButton!
+    @IBOutlet weak var hangUpButton: UIButton!
+}
+    
+```
+</Right>
+
+<Left>
+
+## VideoCollectionViewCell
+And connect up your custom collection view cell:
+
+Tip: If you want to add overlays to your video streams, make sure you don’t add them as subviews of the view objects you’re going to use as video screens. The video canvas will be drawn on top of them. Add them as sibling views instead.
+
+</Left>
+
+<Right name={'VideoCollectionViewCell'}>
+
+```swift
+class VideoCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var videoView: UIView!
+    @IBOutlet weak var nameplateView: UIView!
+    @IBOutlet weak var usernameLabel: UILabel!  
+}
+```
+</Right>
+
+<Left>
+
+## Initialize the Agora Engine
+In order to use the Agora engine, we need to create an instance of AgoraRtcEngineKit with our app ID.
+
+First, we will need to retrieve our app ID by going to the Agora Dashboard. If you haven’t created an Agora project yet, do so now by clicking “New Project.”
+
+Once you have a project, click the “Edit” button (or open the Project Management pane) to view that project’s details. Copy the app ID and add it to your project. If you enabled the App Certificate, you’ll also need a Token to join channels — you can generate a temporary one by clicking “Generate Temp Token.” You can also read our tutorial on generating your own tokens here.
+
+The first call you make to Agora must be to initialize a shared Agora engine. We’ll make sure to do this by creating a helper function that initializes the engine if we haven’t done so yet, and just returns it if we have. That way we can just call it whenever we need a reference to the engine without having to worry about who does it first.
+
+Tip: This is a quick way to ensure the engine is only initialized once when you need it, but for a larger app you may want to consider wrapping it in a Singleton instead, so you can easily access it from anywhere.
+
+</Left>
+
+<Right name={'Initialize the Agora Engine'}>
+
+```swift
+import AgoraRtcKit
+
+let appID = "YourAppIDHere"
+var agoraKit: AgoraRtcEngineKit?
+let tempToken: String? = nil //If you have a token, put it here.
+var userID: UInt = 0 //This tells Agora to generate an id for you. If you have unique user IDs already, you can use those.
+...
+
+private func getAgoraEngine() -> AgoraRtcEngineKit {
+    if agoraKit == nil {
+        agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: appID, delegate: self)
+    }
+    return agoraKit!
+}
+```
+</Right>
+
+<Left>
+
+## Enable Video 
+The next step is to tell Agora we want video enabled, and to tell it where to put the local video stream. We can then call this function from our ```viewDidLoad()```.
+
+Tip: If you want to customize how the video is displayed, this is a good place to configure the video profile.
+
+</Left>
+
+<Right name={'Enable Video'}>
+
+```swift
+func setUpVideo() {
+    getAgoraEngine().enableVideo()
+
+    let videoCanvas = AgoraRtcVideoCanvas()
+    videoCanvas.uid = userID
+    videoCanvas.view = localVideoView
+    videoCanvas.renderMode = .fit
+    getAgoraEngine().setupLocalVideo(videoCanvas)
+}
+```
+</Right>
+
+<Left>
+
+## Join a Channel  
+Once the engine is initialized, joining a call is as easy as calling joinChannel() on the Agora engine.
+
+</Left>
+
+<Right name={'Join a Channel'}>
+
+```swift
+var channelName = "default"
+
+func joinChannel() {
+    localVideoView.isHidden = false
+
+    getAgoraEngine().joinChannel(byToken: tempToken, channelId: channelName, info: nil, uid: userID) { [weak self] (sid, uid, elapsed) in
+        self?.userID = uid
+    }    
+}
+```
+</Right>
+
+<Left>
+
+## Setting up Remote Video
+Now is the time to put our UICollectionView to good use. We’ll keep a list of remote user IDs, and for each one, set up a remote video canvas within our collection.
+
+Tip: Remember to set your custom cell’s reuse identifier in your Main.Storyboard!
+</Left>
+
+<Right name={'Setting up Remote Video'}>
+
+```swift
+var remoteUserIDs: [UInt] = []
+
+func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return remoteUserIDs.count
+}
+
+func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath)
+
+    let remoteID = remoteUserIDs[indexPath.row]
+    if let videoCell = cell as VideoCollectionViewCell {
+        let videoCanvas = AgoraRtcVideoCanvas()
+        videoCanvas.uid = remoteID
+        videoCanvas.view = videoCell.videoView
+        videoCanvas.renderMode = .fit
+        getAgoraEngine().setupRemoteVideo(videoCanvas)
+    }
+
+    return cell
+}
+```
+</Right>
+
+<Left>
+
+## AgoraVideoViewController
+To get this list of userIDs (and maintain it), we’ll utilize the rtcEngine(didJoinedOfUid:) and rtcEngine(didOfflineOfUid:) callbacks. Inside your AgoraRtcEngineDelegate extension, add the following functions:
+
+And with that, you have a working video chat app. Beware of audio feedback if testing on multiple devices at once.
+</Left>
+
+<Right name={'AgoraVideoViewController'}>
+
+```swift
+extension AgoraVideoViewController: AgoraRtcEngineDelegate {
+    func rtcEngine(_ engine: AgoraRtcEngineKit, didJoinedOfUid uid: UInt, elapsed: Int) {
+        remoteUserIDs.append(uid)
+        collectionView.reloadData()
+    }
+
+    func rtcEngine(_ engine: AgoraRtcEngineKit, didOfflineOfUid uid: UInt, reason: AgoraUserOfflineReason) {
+        if let index = remoteUserIDs.firstIndex(where: { $0 == uid }) {
+            remoteUserIDs.remove(at: index)
+            collectionView.reloadData()
+        }
+    }
+}
+```
+</Right>
+
+<Left>
+
+## Polish 
+There a few more pieces that we should add in to make our app a little nicer. For one, our buttons don’t do anything. Lets’s fix that first. Enabling the mute button is a simple call to muteLocalAudioStream():
+
+We can also hang up by calling leaveChannel():
+
+Tip: If you don’t hide the local video view (or pop the view controller) you’ll end up with a static view of the last frame recorded.
+
+As a final touch, let’s take advantage of Agora’s ability to join channels with a username to give our remote streams some nice nameplates. We can update joinChannel() to join with a username if we have one (how you acquire those usernames is left up to you):
+
+Tip: Agora recommends you call registerLocalUserAccount() before joining a channel with a username for better performance, but it’s not necessary.
+
+And then we can extract that username when a remote user joins. Add the following block to collectionView(cellForItemAt:)
+
+And we’re done! You can find the completed app here. Thanks for following along, and happy coding!
+</Left>
+
+<Right name={'Polish'}>
+
+```swift
+var muted = false {
+    didSet {
+        if muted {
+            muteButton.setTitle("Unmute", for: .normal)
+        } else {
+            muteButton.setTitle("Mute", for: .normal)
+        }
+    }
+}
+
+@IBAction func didToggleMute(_ sender: Any) {
+    if muted {
+        getAgoraEngine().muteLocalAudioStream(false)
+    } else {
+        getAgoraEngine().muteLocalAudioStream(true)
+    }
+    muted = !muted
+}
 ```
 
-![](/vercel.svg)
+```swift
+@IBAction func didTapHangUp(_ sender: Any) {
+    leaveChannel()
+}
+
+func leaveChannel() {
+    getAgoraEngine().leaveChannel(nil)
+    localVideoView.isHidden = true
+    remoteUserIDs.removeAll()
+    collectionView.reloadData()
+}
+```
+
+```swift
+func joinChannel() {
+    localVideoView.isHidden = false
+
+    if let name = userName {
+        getAgoraEngine().joinChannel(byUserAccount: name, token: tempToken, channelId: channelName) { [weak self] (sid, uid, elapsed) in
+            self?.userID = uid
+        }
+    } else {
+        getAgoraEngine().joinChannel(byToken: tempToken, channelId: channelName, info: nil, uid: userID) { [weak self] (sid, uid, elapsed) in
+            self?.userID = uid
+        }
+    }
+}
+```
 
 </Right>
