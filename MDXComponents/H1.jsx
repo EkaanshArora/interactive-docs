@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 
 const H1 = (props) => {
   return (
-    <Typography color={'primary'} gutterBottom variant={'h1'} {...props} />
+    <Typography style={{fontWeight:'600'}} gutterBottom variant={'h1'} {...props} />
   );
 };
 

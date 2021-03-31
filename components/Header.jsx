@@ -222,7 +222,7 @@ export default function Header() {
               <MenuItem value="20">中文</MenuItem>
             </Select>
             <Button
-              href="https://join.slack.com/t/agoraiodev/shared_invite/zt-e7ln476c-pfWWYMs40Y7GMPz2i26pwA"
+              href="https://console.agora.io/"
               target="_blank"
               variant="contained"
               className={classes.rightButton}
