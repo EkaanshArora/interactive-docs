@@ -197,11 +197,12 @@ export default function Header() {
             </Link>
             {!matches ? (
               <>
-                <Select style={{marginRight: '20px'}} labelId="label" id="select" value="10">
+              <p style={{marginRight: '20px', fontSize: '18px'}} >Video Call</p>
+                {/* <Select style={{marginRight: '20px'}} labelId="label" id="select" value="10">
                   <MenuItem value="10">Video Call</MenuItem>
                   <MenuItem value="20">Voice Call</MenuItem>
                   <MenuItem value="30">Cloud Recording</MenuItem>
-                </Select>
+                </Select> */}
                <Select labelId="label" id="select" value="30">
                   <MenuItem value="10">Android</MenuItem>
                   <MenuItem value="20">iOS</MenuItem>
