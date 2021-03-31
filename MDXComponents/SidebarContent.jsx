@@ -4,7 +4,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
-// import ExpandLess from '@material-ui/icons/RemoveRounded';
+import ExpandLess from '@material-ui/icons/RemoveRounded';
 import ExpandMore from '@material-ui/icons/AddRounded';
 import {useRouter} from 'next/router';
 import clsx from 'clsx';
@@ -53,9 +53,9 @@ const useStyles = makeStyles((theme) =>
     sectionHeading: {
       fontWeight: 700,
       color: theme.palette.primary.main,
-      // '&:hover': {
-      //   fontWeight: 700,
-      // },
+      '&:hover': {
+        fontWeight: 700,
+      },
     },
     hightlight: {
       fontWeight: 700,
@@ -70,12 +70,17 @@ const useStyles = makeStyles((theme) =>
 
 export default function NestedList() {
   const classes = useStyles();
-  // const [open, setOpen] = React.useState(true);
+  const stateobj = {} 
+  sidebar.map(({title})=>{
+    stateobj[title] = false;
+  });
+  const [open, setOpen] = React.useState(stateobj);
   const router = useRouter();
 
-  // const handleClick = () => {
-  //   setOpen(!open);
-  // };
+  const handleClick = (title) => {
+    setOpen(ps=>{return {...ps, [title]: !ps[title]}});
+    console.log(title, open);
+  };
 
   return (
     <List
@@ -95,14 +100,15 @@ export default function NestedList() {
               disableRipple
               className={classes.collapseListItem}
               disableTouchRipple
-              // onClick={handleClick}
+              onClick={()=>handleClick(title)}
             >
-              {/* {open ? (
-                <ExpandLess className={classes.icons} />
-              ) : (
-                <ExpandMore className={classes.icons} />
-              )} */}
-              <ExpandMore className={classes.icons} />
+              {(contents === null ) ? (null):(
+                open[title] ? (
+                  <ExpandLess className={classes.icons} > {console.log(contents)}</ExpandLess>
+                ) : (
+                  <ExpandMore className={classes.icons} />
+                ))}
+              {/* <ExpandMore className={classes.icons} /> */}
               <ListItemText
                 className={classes.collapseButton}
                 primaryTypographyProps={{
@@ -113,9 +119,9 @@ export default function NestedList() {
                 primary={title}
               />
             </ListItem>
-            <Collapse in={true} timeout="auto" unmountOnExit>
+            <Collapse in={open[title]} timeout="auto" unmountOnExit>
               <List component="div" disablePadding style={{marginTop: '-10px'}}>
-                {contents.map(({title: subtitle, url}) => (
+                {contents !== null ? contents.map(({title: subtitle, url}) => (
                   <ListItem
                     key={url}
                     button
@@ -140,7 +146,7 @@ export default function NestedList() {
                       primary={subtitle}
                     />
                   </ListItem>
-                ))}
+                )):(null)}
               </List>
             </Collapse>
           </div>

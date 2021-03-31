@@ -40,7 +40,7 @@ const Code = ({
   children,
   className,
 }) => {
-  const codeRef = useRef<HTMLPreElement>(null);
+  const codeRef = useRef(null);
   const language = className
     ? className.replace(/language-/, '')
     : 'markdown';

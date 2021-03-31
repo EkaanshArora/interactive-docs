@@ -1,51 +1,47 @@
-const Backend = [
-  {
-    title: 'Credentials',
-    url: '/docs/Backend/Credentials',
-  },
-  {
-    title: 'Deploy Using Docker',
-    url: '/docs/Backend/Deploy-Using-Docker',
-  },
-  {
-    title: 'Deploy with Heroku',
-    url: '/docs/Backend/Deploying-With-Heroku',
-  },
-  {
-    title: 'How to setup PSTN',
-    url: '/docs/Backend/How-to-Setup-PSTN',
-  },
-  {
-    title: 'Log Management',
-    url: '/docs/Backend/Log-Management',
-  },
-  {
-    title: 'Update the backend',
-    url: '/docs/Backend/Update-the-Backend',
-  },
-  {
-    title: 'Custom AWS Regions',
-    url: '/docs/Backend/Using-Custom-AWS-Regions-for-Cloud-Recording',
-  },
-];
-const Frontend = [
-  {
-    title: 'Environment setup (pre-requisite)',
-    url: '/docs/Frontend/Environment-setup',
-  },
-  {
-    title: 'Build Guide',
-    url: '/docs/Frontend/Build-guide',
-  },
-  {
-    title: 'Code Signing Guide',
-    url: '/docs/Frontend/Code-Signing-guide',
-  },
-];
-
+const Intro = [
+  { title: 'Agora Video Overview', url: '1' },
+  { title: 'Release Notes', url: '2' },
+  { title: 'Pricing', url: '3' }
+]
+const Basic = [
+  { title: 'Join and Leave', url: '4' },
+  { title: 'Create Local Tracks', url: '5' },
+  { title: 'Publish and Subscribe', url: '6' },
+  { title: 'Generate a Token', url: '7' },
+  { title: 'Cloud Proxy', url: '8' },
+  { title: 'Pre-call Tests', url: '9' },
+  { title: 'Device Tests', url: '10' },
+  { title: 'Channel Connection', url: '111' },
+  { title: 'Adjust Volume', url: '12' },
+  { title: 'Audio Profiles', url: '13' },
+  { title: 'Video Profiles', url: '14' },
+  { title: 'Share Screen', url: '15' },
+]
+const Quickstart = [{
+  title: 'Start a Video Call', url: '16'
+}]
+const Advanced = [
+  { title: 'In-call Stats', url: '17' },
+  { title: 'Optimization Mode', url: '18' },
+  { title: 'Channel Encryption', url: '19' },
+  { title: 'Audio Effects/Mixing File', url: '20' },
+  { title: 'Custom Audio Source and Renderer', url: '21' },
+  { title: 'Custom Video Source and Renderer', url: '22' },
+  { title: 'Network Geofencing', url: '23' },
+  { title: 'Best Practices', url: '24' },
+]
+const Best = [
+  { title: 'Deal with Autoplay Blocking', url: '25' },
+  { title: 'Video for Multiple Users', url: '26' },
+]
 const sidebar = [
-  {title: 'Frontend', contents: Frontend},
-  {title: 'Backend', contents: Backend},
+  { title: 'Introduction', contents: null },
+  { title: 'Quickstart Guides', contents: Quickstart },
+  { title: 'Basic Guides', contents: Basic },
+  { title: 'Advanced Guides', contents: Advanced },
+  { title: 'Best Practices', contents: Best },
+  { title: 'API Reference', contents: null },
+  { title: 'FAQ', contents: null },
 ];
 
 export default sidebar;

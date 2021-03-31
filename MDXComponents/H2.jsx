@@ -13,7 +13,7 @@ const useStyles = makeStyles(
   }),
 );
 const H2 = (props) => {
-  const ref = useRef<HTMLHeadingElement>(null);
+  const ref = useRef(null);
   const classes = useStyles();
   const {setLink} = useActiveLink();
   // const [observe, unobserve] = useAnchorBind();
