@@ -13,7 +13,7 @@ const useStyles = makeStyles(
   }),
 );
 const H2 = (props) => {
-  const ref = useRef<HTMLHeadingElement>(null);
+  const ref = useRef(null);
   const classes = useStyles();
   const {setLink} = useActiveLink();
   // const [observe, unobserve] = useAnchorBind();
@@ -26,8 +26,8 @@ const H2 = (props) => {
         if (entry.isIntersecting) {
           if (entry.intersectionRatio >= 0.75) {
             // intersecting.push(heading.id);
-            setLink(heading.id);
-            // console.log('[In view] : ', heading.id);
+            setLink(heading.innerHTML);
+            // console.log('[In view] : ', heading.innerHTML);
           }
         } else {
           // intersecting.filter((h) => h !== heading.id);
