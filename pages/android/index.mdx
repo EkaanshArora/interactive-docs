@@ -1,8 +1,28 @@
-import LivePreview from '../../components/LivePreview';
-import RTMButton from '../../components/RTMButton';
+import Tabs from '../../components/Tabs';
 
 # Android Documentation
 
-<LivePreview />
+<Tabs apiMethod='play'>
+<br/>
 
-<RTMButton apiMethod="testMethod" />
+`int io.agora.mediaplayer.AgoraMediaPlayerKit.play()`
+
+<br/>
+
+Plays the media resource.
+
+<br/>
+
+
+After `open()` or `pause()` or `seek()`, you can call this method to play the media resource.
+
+<br/>
+
+Returns
+
+0: Success.
+
+< 0: Failure. See [`MediaPlayerError`](https://docs.agora.io/en/Interactive%20Broadcast/API%20Reference/mediaplayer_java/enumio_1_1agora_1_1mediaplayer_1_1_constants_1_1_media_player_error.html) for details.
+
+
+</Tabs>

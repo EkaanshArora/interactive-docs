@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 // import AgoraRTM from 'agora-rtm-sdk';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 function RTMButton(props) {
@@ -9,14 +9,21 @@ function RTMButton(props) {
         ...other
     } = props;
     const [loggedIn, setLoggedIn] = useState(false);
+    const channelRef = useRef(null);
 
     useEffect(() => {
-        import("agora-rtm-sdk").then(mod => {
-            return mod.default
-        }).then(AgoraRTM => {
+        async function rtm(){
+            const mod =  await import("agora-rtm-sdk")
+            const AgoraRTM = mod.default;
             console.log(AgoraRTM)
-            const client = AgoraRTM.createInstance('app-id');
+            const client = AgoraRTM.createInstance('029250729b864e369e870703ac3fd265');
+            const details = await client.login({
+                uid: 'new users',
+                token: null
+            });
+            console.log('details', details);
             const channel = client.createChannel('test');
+            channelRef.current = channel;
             channel.join().then(() => {
                 /* Your code for handling the event of a join-channel success. */
                 console.log('AgoraRTM client login success');
@@ -27,22 +34,23 @@ function RTMButton(props) {
                 console.log('AgoraRTM client login failure', error);
                 setLoggedIn(false);
             });
-        })
-    })
+            
+        }
+        rtm();
+    },[])
 
     function handleClick() {
-        useEffect(() => {
-            channel.sendMessage({ text: apiMethod }).then(() => {
-                /* Your code for handling events, such as a channel message-send success. */
-                console.log('Sent: ', apiMethod);
-            }).catch(error => {
-                /* Your code for handling events, such as a channel message-send failure. */
-                console.log('Send Message Failure', error)
-            });
-        }, [loggedIn])
+        const channel = channelRef.current;
+        channel.sendMessage({ text: apiMethod }).then(() => {
+            /* Your code for handling events, such as a channel message-send success. */
+            console.log('Sent: ', apiMethod);
+        }).catch(error => {
+            /* Your code for handling events, such as a channel message-send failure. */
+            console.log('Send Message Failure', error)
+        });
     }
 
-    return (<button onClick={handleClick}></button>);
+    return (<button disabled={!loggedIn} onClick={handleClick}>Open in android app</button>);
 }
 
 export default RTMButton;
